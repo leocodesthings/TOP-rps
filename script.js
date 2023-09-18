@@ -1,5 +1,7 @@
 function playRound(playerSelection, computerSelection) {
-playerSelection = playerSelection.toLowerCase();
+ //playerSelection = playerSelection.toLowerCase();
+    //
+    //playerSelection = button.innerText;
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
         console.log("Rock beats scissors! You won!");
@@ -23,6 +25,12 @@ playerSelection = playerSelection.toLowerCase();
         console.log("Tie!");
     }
 }
+// function square(number) {
+//     return number * number;
+// }
+//
+// square(5);
+
 function getComputerChoice() {
     let range = Math.random();
     range *= 3;
@@ -37,6 +45,16 @@ function getComputerChoice() {
         return "scissors";
     }
 }
+
+let buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    //console.log(button.innerText);
+    button.addEventListener('click', (event) => {
+        let computerSelection = getComputerChoice();
+        playRound(button.innerText, computerSelection);
+        console.log(computerSelection);
+    });
+});
 
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
